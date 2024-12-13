@@ -1,0 +1,341 @@
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --background-color: #f7f9fc;
+  --text-color: #2C3E50;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Comic Neue', cursive;
+  background: var(--background-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 20%);
+}
+
+.quiz-container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 350px;
+  max-width: 600px;
+  width: 90%;
+  border: 3px solid var(--primary-color);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.question {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.option-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.3rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 0 darken(#4ECDC4, 10%);
+  width: 100%;
+}
+
+.option-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 darken(#4ECDC4, 10%);
+}
+
+.option-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 darken(#4ECDC4, 10%);
+}
+
+.timer {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.score {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.results {
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.results h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.results-details {
+  background: rgba(78, 205, 196, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.results-details p {
+  font-size: 1.3rem;
+  margin: 0.7rem 0;
+  color: var(--text-color);
+}
+
+.start-screen {
+  text-align: center;
+}
+
+.instructions {
+  background: rgba(78, 205, 196, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+}
+
+.instructions p {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.start-button, .restart-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 0 darken(#FF6B6B, 10%);
+  margin: 1rem 0;
+}
+
+.start-button:hover, .restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 darken(#FF6B6B, 10%);
+}
+
+.start-button:active, .restart-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 darken(#FF6B6B, 10%);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 1.5rem;
+    min-width: auto;
+  }
+
+  .question {
+    font-size: 2rem;
+  }
+
+  .option-button {
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+.results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.results-actions button {
+  width: 100%;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 0 darken(#4ECDC4, 10%);
+}
+
+.review-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 darken(#4ECDC4, 10%);
+}
+
+.back-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--text-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.review-section {
+  animation: fadeIn 0.5s ease;
+}
+
+.wrong-answers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.review-item {
+  background: rgba(78, 205, 196, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.review-question {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+.review-answer {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.review-answer.wrong {
+  color: var(--primary-color);
+}
+
+.review-answer.correct {
+  color: var(--secondary-color);
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.start-over-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--text-color);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.start-over-button:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.start-over-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.number-range {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 10px;
+}
+
+.language-selector {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lang-button {
+  font-family: 'Comic Neue', cursive;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  background: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-button.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.lang-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
