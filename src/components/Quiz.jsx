@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 function Quiz({ onQuizEnd, totalQuestions, timeLimit, onStartOver, t }) {
   const [currentQuestion, setCurrentQuestion] = useState(generateQuestion())
@@ -7,14 +7,29 @@ function Quiz({ onQuizEnd, totalQuestions, timeLimit, onStartOver, t }) {
   const [timeLeft, setTimeLeft] = useState(timeLimit)
   const [options, setOptions] = useState([])
   const [questionsAttempted, setQuestionsAttempted] = useState(0)
-  const [wrongAnswers, setWrongAnswers] = useState([]);
+  const [wrongAnswers, setWrongAnswers] = useState([])
+
+  const scoreRef = useRef(score)
+  const questionsAttemptedRef = useRef(questionsAttempted)
+  const wrongAnswersRef = useRef(wrongAnswers)
+
+  useEffect(() => {
+    scoreRef.current = score
+    questionsAttemptedRef.current = questionsAttempted
+    wrongAnswersRef.current = wrongAnswers
+  }, [score, questionsAttempted, wrongAnswers])
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
           clearInterval(timer)
-          onQuizEnd(score, timeLimit - prev, questionsAttempted, wrongAnswers)
+          onQuizEnd(
+            scoreRef.current, 
+            timeLimit - prev, 
+            questionsAttemptedRef.current, 
+            wrongAnswersRef.current
+          )
           return 0
         }
         return prev - 1
@@ -22,7 +37,7 @@ function Quiz({ onQuizEnd, totalQuestions, timeLimit, onStartOver, t }) {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [score, questionsAttempted, wrongAnswers])
+  }, [])
 
   useEffect(() => {
     setOptions(generateOptions(currentQuestion.answer))
