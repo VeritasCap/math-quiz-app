@@ -33,4 +33,4 @@ yarn-error.log*
 Thumbs.db
 
 # Vite
-*.local 
+*.local math-quiz-development-notes.md
