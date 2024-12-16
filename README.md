@@ -31,7 +31,7 @@ A fun and interactive math quiz application designed for children to practice ba
 
 ## Live Demo
 
-Try the app here: [Math Quiz App](k2mathquiz.netlify.app)
+Try the app here: [Math Quiz App](https://k2mathquiz.netlify.app)
 
 ## Getting Started
 
